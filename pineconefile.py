@@ -41,7 +41,27 @@ data = [
     {"id": "vec17", "text": "Pineapples have a spiky exterior and sweet, juicy flesh inside."},
     {"id": "vec18", "text": "Mangoes are tropical fruits with a sweet and tangy flavor."},
     {"id": "vec19", "text": "Watermelons are large fruits with a green rind and juicy red interior."},
-    {"id": "vec20", "text": "Cherries are small, round fruits that can be sweet or tart."}
+    {"id": "vec20", "text": "Cherries are small, round fruits that can be sweet or tart."},
+    {"id": "vec21", "text": "Python is a popular programming language known for its readability."},
+    {"id": "vec22", "text": "The Eiffel Tower is one of the most famous landmarks in Paris."},
+    {"id": "vec23", "text": "The theory of relativity was developed by Albert Einstein."},
+    {"id": "vec24", "text": "Mount Everest is the highest mountain in the world."},
+    {"id": "vec25", "text": "The Great Wall of China is visible from space."},
+    {"id": "vec26", "text": "Photosynthesis is the process by which plants make their food."},
+    {"id": "vec27", "text": "The capital of Japan is Tokyo."},
+    {"id": "vec28", "text": "Shakespeare wrote many famous plays, including Hamlet and Macbeth."},
+    {"id": "vec29", "text": "The speed of light is approximately 299,792 kilometers per second."},
+    {"id": "vec30", "text": "The human heart pumps blood throughout the body."},
+    {"id": "vec31", "text": "World War II ended in 1945."},
+    {"id": "vec32", "text": "The Amazon rainforest is the largest tropical rainforest in the world."},
+    {"id": "vec33", "text": "The Mona Lisa was painted by Leonardo da Vinci."},
+    {"id": "vec34", "text": "Water boils at 100 degrees Celsius at sea level."},
+    {"id": "vec35", "text": "The internet has revolutionized global communication."},
+    {"id": "vec36", "text": "The Pythagorean theorem relates the sides of a right triangle."},
+    {"id": "vec37", "text": "The Pacific Ocean is the largest ocean on Earth."},
+    {"id": "vec38", "text": "The periodic table organizes chemical elements by atomic number."},
+    {"id": "vec39", "text": "The Statue of Liberty was a gift from France to the United States."},
+    {"id": "vec40", "text": "Gravity is the force that attracts objects toward the center of the Earth."}
 ]
 
 embeddings = pc.inference.embed(
