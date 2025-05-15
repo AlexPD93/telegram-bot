@@ -62,8 +62,8 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if results and "matches" in results and results["matches"]:
         reply = "Top results:\n"
         for match in results["matches"]:
-            text = match.get("metadata", {}).get("text", "")
-            score = match.get("score", 0)
+            text = match["metadata"]["text"]
+            score = match["score"]
             reply += f"- {text} (score: {score:.2f})\n"
     else:
         reply = "No results found."
