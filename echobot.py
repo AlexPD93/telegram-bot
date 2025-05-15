@@ -20,6 +20,12 @@ import logging
 from telegram import ForceReply, Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+
 # Enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -52,12 +58,12 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def code_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Send the GitHub link when the command /code is issued."""
-    await update.message.reply_text("https://github.com/AlexPD93/python-telegram-bot")
+    await update.message.reply_text("https://github.com/AlexPD93/telegram-bot")
 
 def main() -> None:
     """Start the bot."""
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("8080536719:AAHoFGtRfDHJuE_akTkiQCmVysq6iV8Djuo").build()
+    application = Application.builder().token(TOKEN).build()
 
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler("start", start))
