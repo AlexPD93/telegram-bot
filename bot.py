@@ -23,6 +23,8 @@ from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandl
 from dotenv import load_dotenv
 import os
 
+from pineconefile import query_pinecone
+
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
@@ -54,7 +56,18 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
-    await update.message.reply_text(update.message.text)
+    user_query = update.message.text
+    results = query_pinecone(user_query)
+    # Format the results for reply
+    if results and "matches" in results and results["matches"]:
+        reply = "Top results:\n"
+        for match in results["matches"]:
+            text = match.get("metadata", {}).get("text", "")
+            score = match.get("score", 0)
+            reply += f"- {text} (score: {score:.2f})\n"
+    else:
+        reply = "No results found."
+    await update.message.reply_text(reply)
 
 async def code_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Send the GitHub link when the command /code is issued."""
@@ -75,7 +88,6 @@ def main() -> None:
 
     # Run the bot until the user presses Ctrl-C
     application.run_polling(allowed_updates=Update.ALL_TYPES)
-
 
 if __name__ == "__main__":
     main()
